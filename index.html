@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-DO Card Component</title>
+</head>
+<body>
+<div class="todo-card-wrapper">
+
+
+    <article class="todo-card" data-testid="test-todo-card" role="region" aria-label="Task card: Design dashboard mockup">
+
+        <div class="card-inner">
+
+            <div class="card-header-row">
+            <div class="title-wrapper">
+                <h2 class="todo-title" data-testid="test-todo-title" id="todo-title-text">Design dashboard mockup</h2>
+            </div>
+            <span class="status-badge" data-testid="test-todo-status" id="status-badge" aria-label="Current status: Pending">📋 Pending</span>
+            <div class="checkbox-wrapper">
+                <label for="complete-toggle" aria-label="Toggle completion status">
+                <input type="checkbox" id="complete-toggle" data-testid="test-todo-complete-toggle" aria-describedby="todo-title-text">
+                <span>✔️ Done</span>
+                </label>
+            </div>
+        </div>
+
+
+        <div class="todo-description" data-testid="test-todo-description">
+            Create high-fidelity interactive prototype for client review, include dark mode and mobile variants.
+        </div>
+
+
+        <div class="meta-grid">
+            <div class="priority-chip" data-testid="test-todo-priority" aria-label="Priority: Medium">
+                <span>⚡ Medium</span>
+            </div>
+            <div class="due-date-block">
+                <span>📅</span>
+                <time datetime="2026-03-01T18:00:00+00:00" data-testid="test-todo-due-date">Due Mar 1, 2026</time>
+            </div>
+            <div class="time-remaining-block" aria-live="polite">
+                <span>⏳</span>
+                <span data-testid="test-todo-time-remaining" id="time-remaining-display">—</span>
+            </div>
+        </div>
+
+
+        <div class="tags-section">
+            <div class="tags-heading">🏷️ Categories</div>
+            <ul class="tag-list" role="list" data-testid="test-todo-tags">
+                <li class="tag-item" data-testid="test-todo-tag-work">💼 Work</li>
+                <li class="tag-item" data-testid="test-todo-tag-urgent">⚠️ Urgent</li>
+                <li class="tag-item">🎨 Design</li>
+            </ul>
+        </div>
+
+
+        <div class="action-buttons">
+            <button class="btn-icon btn-edit" data-testid="test-todo-edit-button" aria-label="Edit task">
+                ✏️ Edit
+            </button>
+            <button class="btn-icon btn-delete" data-testid="test-todo-delete-button" aria-label="Delete task">
+                🗑️ Delete
+            </button>
+        </div>
+    </article>
+</div>
+
+</body>
+<script src="script.js"></script>
+</html>
