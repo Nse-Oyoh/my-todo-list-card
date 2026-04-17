@@ -7,68 +7,62 @@
     <title>To-DO Card Component</title>
 </head>
 <body>
-<div class="todo-card-wrapper">
+    <div class="todo-card-wrapper">
+        <article class="todo-card priority-indicator" data-testid="test-todo-card" data-priority="Medium" id="card-root" role="region" aria-label="Interactive task card">
+            <div class="card-inner" id="card-inner">
+
+                <div id="normal-view">
+                    <div class="card-header-row">
+                    <div class="title-wrapper"><h2 class="todo-title" data-testid="test-todo-title" id="todo-title">Design dashboard mockup</h2></div>
+                    <span class="status-badge" data-testid="test-todo-status" id="status-badge-display"> Pending</span>
+                    <div class="checkbox-wrapper"><label><input type="checkbox" data-testid="test-todo-complete-toggle" id="complete-toggle"> Done</label></div>
+                    </div>
+
+                    <div class="todo-description-wrapper">
+                    <div class="description-preview" id="desc-preview">Create high-fidelity interactive prototype for client review, include dark mode and mobile variants. Additional details: user testing, handoff to dev.</div>
+                    <button class="expand-toggle" data-testid="test-todo-expand-toggle" id="expand-toggle" aria-expanded="false" aria-controls="collapsible-section"> Show full description</button>
+                    <div id="collapsible-section" class="collapsible-section" hidden data-testid="test-todo-collapsible-section">
+                        <div class="full-description" data-testid="test-todo-description" id="full-description-text">Create high-fidelity interactive prototype for client review, include dark mode and mobile variants. Additional details: user testing, handoff to dev. Also includes design system documentation and interactive components.</div>
+                    </div>
+                    </div>
+
+                    <div class="meta-grid">
+                    <div class="priority-chip" data-testid="test-todo-priority" id="priority-chip">Medium</div>
+                    <div class="due-date-block"><time data-testid="test-todo-due-date" id="due-date-display">Due Mar 1, 2026</time></div>
+                    <div class="time-remaining-block" aria-live="polite"><span data-testid="test-todo-time-remaining" id="time-remaining">—</span></div>
+                    <div class="status-control-group"><label for="status-control">Status:</label>
+                        <select id="status-control" data-testid="test-todo-status-control" aria-label="Task status">
+                        <option value="Pending">Pending</option><option value="In Progress">In Progress</option><option value="Done">Done</option>
+                        </select>
+                    </div>
+                    <div id="overdue-container"></div>
+                    </div>
+
+                    <div class="tags-section"><div class="tag-list" data-testid="test-todo-tags">
+                    <li class="tag-item" data-testid="test-todo-tag-work">Work</li>
+                    <li class="tag-item" data-testid="test-todo-tag-urgent">Urgent</li>
+                    <li class="tag-item">Design</li>
+                    </div></div>
+
+                    <div class="action-buttons">
+                    <button class="btn-icon btn-edit" data-testid="test-todo-edit-button" id="edit-btn">Edit</button>
+                    <button class="btn-icon btn-delete" data-testid="test-todo-delete-button" id="delete-btn">Delete</button>
+                    </div>
+                </div>
 
 
-    <article class="todo-card" data-testid="test-todo-card" role="region" aria-label="Task card: Design dashboard mockup">
-
-        <div class="card-inner">
-
-            <div class="card-header-row">
-            <div class="title-wrapper">
-                <h2 class="todo-title" data-testid="test-todo-title" id="todo-title-text">Design dashboard mockup</h2>
+                <div id="edit-view" style="display: none;">
+                        <div data-testid="test-todo-edit-form" class="edit-form">
+                        <div class="form-group"><label for="edit-title">Title</label><input type="text" id="edit-title" data-testid="test-todo-edit-title-input"></div>
+                        <div class="form-group"><label for="edit-desc">Description</label><textarea id="edit-desc" rows="3" data-testid="test-todo-edit-description-input"></textarea></div>
+                        <div class="form-group"><label for="edit-priority">Priority</label><select id="edit-priority" data-testid="test-todo-edit-priority-select"><option>Low</option><option>Medium</option><option>High</option></select></div>
+                        <div class="form-group"><label for="edit-due">Due Date</label><input type="datetime-local" id="edit-due" data-testid="test-todo-edit-due-date-input"></div>
+                        <div class="form-actions"><button class="save-btn" data-testid="test-todo-save-button">Save</button><button class="cancel-btn" data-testid="test-todo-cancel-button">✖ Cancel</button></div>
+                        </div>
+                </div>
             </div>
-            <span class="status-badge" data-testid="test-todo-status" id="status-badge" aria-label="Current status: Pending">📋 Pending</span>
-            <div class="checkbox-wrapper">
-                <label for="complete-toggle" aria-label="Toggle completion status">
-                <input type="checkbox" id="complete-toggle" data-testid="test-todo-complete-toggle" aria-describedby="todo-title-text">
-                <span>✔️ Done</span>
-                </label>
-            </div>
-        </div>
-
-
-        <div class="todo-description" data-testid="test-todo-description">
-            Create high-fidelity interactive prototype for client review, include dark mode and mobile variants.
-        </div>
-
-
-        <div class="meta-grid">
-            <div class="priority-chip" data-testid="test-todo-priority" aria-label="Priority: Medium">
-                <span>⚡ Medium</span>
-            </div>
-            <div class="due-date-block">
-                <span>📅</span>
-                <time datetime="2026-03-01T18:00:00+00:00" data-testid="test-todo-due-date">Due Mar 1, 2026</time>
-            </div>
-            <div class="time-remaining-block" aria-live="polite">
-                <span>⏳</span>
-                <span data-testid="test-todo-time-remaining" id="time-remaining-display">—</span>
-            </div>
-        </div>
-
-
-        <div class="tags-section">
-            <div class="tags-heading">🏷️ Categories</div>
-            <ul class="tag-list" role="list" data-testid="test-todo-tags">
-                <li class="tag-item" data-testid="test-todo-tag-work">💼 Work</li>
-                <li class="tag-item" data-testid="test-todo-tag-urgent">⚠️ Urgent</li>
-                <li class="tag-item">🎨 Design</li>
-            </ul>
-        </div>
-
-
-        <div class="action-buttons">
-            <button class="btn-icon btn-edit" data-testid="test-todo-edit-button" aria-label="Edit task">
-                ✏️ Edit
-            </button>
-            <button class="btn-icon btn-delete" data-testid="test-todo-delete-button" aria-label="Delete task">
-                🗑️ Delete
-            </button>
-        </div>
-    </article>
-</div>
-
+        </article>
+ </div>
 </body>
 <script src="script.js"></script>
 </html>
